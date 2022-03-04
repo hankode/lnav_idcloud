@@ -1,0 +1,94 @@
+{
+    "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+    "forgerock_idcloud_log": {
+        "title": "ForgeRock ID Cloud log format",
+        "description": "Logger format as provided by /monitoring/logs endpoint",
+        "url": "https://backstage.forgerock.com/knowledge/kb/article/a37739488",
+        "json": true,
+        "hide-extra": true,
+        "convert-to-local-time": false,
+        "line-format": [
+            {
+                "field": "__timestamp__",
+                "timestamp-format": "%Y-%m-%d %H:%M.%S"
+            },
+            " ",
+            {
+                "field": "level"
+            },
+            " ",
+            {
+                "field": "logger",
+                "max-width": 20,
+                "min-width": 20,
+                "align": "right",
+                "overflow": "dot-dot"
+            },
+            " ",
+            {
+                "field": "transactionId",
+                "min-width": 44
+            },
+            " ",
+            {
+                "field": "message",
+                "min-width": 100
+            },
+            " ",
+            {
+                "field": "thread"
+            },
+            " ",
+            {
+                "field": "context"
+            },
+            " ",
+            {
+                "field": "mdc"
+            },
+            " ",
+            {
+                "field": "exception",
+                "overflow": "truncate"
+            },
+            ""
+        ],
+        "timestamp-field": "timestamp",
+        "level-field": "level",
+        "level": {
+            "error": "ERROR",
+            "warning": "WARN",
+            "info": "INFO",
+            "debug": "DEBUG",
+            "critical": "CRITICAL",
+            "fatal": "FATAL"
+        },
+        "opid-field": "transactionId",
+        "body-field": "message",
+        "value": {
+            "context": {
+                "kind": "string",
+                "hidden": true
+            },
+            "logger": {
+                "kind": "string",
+                "identifier": true
+            },
+            "thread": {
+                "kind": "string",
+                "hidden": true
+            },
+            "transactionId": {
+                "kind": "string",
+                "identifier": true
+            },
+            "exception": {
+                "kind": "string"
+            },
+            "mdc": {
+                "kind": "struct",
+                "hidden": true
+            }
+        }
+    }
+}
