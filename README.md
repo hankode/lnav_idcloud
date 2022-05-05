@@ -10,4 +10,4 @@ Custom format file for [lnav](https://lnav.org/) to format ForgeRock Identity Cl
 `lnav -i forgerock_idcloud_log.json`
 
 ## Usage
-`./tail.am-core.js. | lnav`
+`./tail_am 2>/dev/null | lnav`
