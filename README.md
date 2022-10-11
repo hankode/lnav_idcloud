@@ -3,11 +3,19 @@ Custom format file for [lnav](https://lnav.org/) to format ForgeRock Identity Cl
 
 ## Prerequisites
 * A ForgeRock Identity Cloud tenant with credentials for the Log API.
-* Utility for ID Cloud logs [FIDC Debug Tool](vscheuber/fidc-debug-tools)
+* A utility for tailing ID Cloud logs:
+  * [Frodo CLI](https://github.com/rockcarver/frodo-cli)
+  * [FIDC Debug Tool](vscheuber/fidc-debug-tools)
 * [lnav](https://lnav.org/) 
 
 ## Installation
 `lnav -i forgerock_idcloud_log.json`
 
 ## Usage
+  * Using tail_am from FIDC Debug Tool:
+  
 `./tail_am 2>/dev/null | lnav`
+
+  * Using Frodo:
+  
+`frodo logs tail <your_host> -l 3 -c am-everything 2>&1 | lnav`
