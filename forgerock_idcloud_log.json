@@ -14,11 +14,15 @@
             },
             " ",
             {
-                "field": "level"
+                "field": "__level__"
             },
             " ",
             {
-                "field": "logger",
+                "field": "source"
+            },
+            " ",
+            {
+                "field": "payload/logger",
                 "max-width": 20,
                 "min-width": 20,
                 "align": "right",
@@ -26,25 +30,21 @@
             },
             " ",
             {
-                "field": "transactionId",
+                "field": "payload/transactionId",
                 "min-width": 44
             },
             " ",
             {
-                "field": "message",
+                "field": "payload/message",
                 "min-width": 100
             },
             " ",
             {
-                "field": "thread"
+                "field": "payload/thread"
             },
             " ",
             {
-                "field": "context"
-            },
-            " ",
-            {
-                "field": "mdc"
+                "field": "payload/context"
             },
             " ",
             {
@@ -54,7 +54,7 @@
             ""
         ],
         "timestamp-field": "timestamp",
-        "level-field": "level",
+        "level-field": "payload/level",
         "level": {
             "error": "ERROR",
             "warning": "WARN",
@@ -63,31 +63,39 @@
             "critical": "CRITICAL",
             "fatal": "FATAL"
         },
-        "opid-field": "transactionId",
-        "body-field": "message",
+        "opid-field": "payload/transactionId",
+        "body-field": "payload",
         "value": {
-            "context": {
+            "type": {
                 "kind": "string",
                 "hidden": true
             },
-            "logger": {
+            "source": {
+                "kind": "string"
+            },
+            "payload": {
+                "kind": "json",
+                "hidden": true
+            },
+            "payload/message": {
+                "kind": "string"
+            },
+            "payload/logger": {
                 "kind": "string",
                 "identifier": true
             },
-            "thread": {
-                "kind": "string",
-                "hidden": true
+            "payload/thread": {
+                "kind": "string"
             },
-            "transactionId": {
+            "payload/context": {
+                "kind": "string"
+            },
+            "payload/transactionId": {
                 "kind": "string",
                 "identifier": true
             },
             "exception": {
                 "kind": "string"
-            },
-            "mdc": {
-                "kind": "struct",
-                "hidden": true
             }
         }
     }
