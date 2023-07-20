@@ -14,7 +14,7 @@
             },
             " ",
             {
-                "field": "__level__"
+                "field": "payload/level"
             },
             " ",
             {
@@ -48,7 +48,7 @@
             },
             " ",
             {
-                "field": "exception",
+                "field": "payload/exception",
                 "overflow": "truncate"
             },
             ""
@@ -84,6 +84,10 @@
                 "kind": "string",
                 "identifier": true
             },
+            "payload/level": {
+                "kind": "string",
+                "identifier": true
+            },
             "payload/thread": {
                 "kind": "string"
             },
@@ -94,7 +98,7 @@
                 "kind": "string",
                 "identifier": true
             },
-            "exception": {
+            "payload/exception": {
                 "kind": "string"
             }
         }
